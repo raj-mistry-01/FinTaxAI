@@ -23,8 +23,8 @@ export default function App() {
         <div className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/financialanalysis/*" element={<MultiStepForm />} /> Updated to handle nested paths
-            <Route path="/financialanalysis2/*" element={<MultiStepForm2 />} /> Updated to handle nested paths
+            <Route path="/financialanalysis" element={<MultiStepForm />} /> Updated to handle nested paths
+            <Route path="/financialanalysis2" element={<MultiStepForm2 />} /> Updated to handle nested paths
             <Route path="/taxbot" element={<ChatPanel />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />

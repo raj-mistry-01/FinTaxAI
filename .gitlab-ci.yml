@@ -1,7 +1,0 @@
-stages:
-  - test
-
-run-tests:
-  stage: test
-  script:
-    - echo "🔥 Running tests..."
