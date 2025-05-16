@@ -25,6 +25,7 @@ app.use("/api/add", adddata);
 
 // Start server
 
+
 const port = process.env.PORT || 7000; // Use port from environment variables or default to 7000
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
