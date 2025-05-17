@@ -49,7 +49,7 @@ const OCR = () => {
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
-                        email: "user@example.com",
+                        email: localStorage.getItem("userEmail"),
                         date: resultParts[0],
                         typeOfPurchase: resultParts[1],
                         PaidTo: resultParts[2],
