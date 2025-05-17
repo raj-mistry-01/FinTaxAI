@@ -11,13 +11,13 @@ const SeeTransaction = () => {
     });
 
     const addToTableAndMongo = async () => {
-        let response = await fetch("http://localhost:7000/api/add/addTransactionDetail",{
+        let response = await fetch("https://fin-tax-ai.vercel.app/api/add/addTransactionDetail",{
             method : "POST",
             headers : {
                 "Content-Type": "application/json",
             },
             body : JSON.stringify({ 
-                email: "user@example.com" ,
+                email: localStorage.getItem('userEmail') ,
                 date : newTransaction.date,
                 typeOfPurchase : newTransaction.purpose,
                 PaidTo : newTransaction.paidTo,
@@ -33,7 +33,7 @@ const SeeTransaction = () => {
         const email = localStorage.getItem("userEmail");
         const fetchTransactions = async () => {
             try {
-                const response = await fetch("http://localhost:7000/api/add/getIndividualTranscationDetail", {
+                const response = await fetch("https://fin-tax-ai.vercel.app/api/add/getIndividualTranscationDetail", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

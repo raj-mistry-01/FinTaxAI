@@ -43,7 +43,7 @@ const OCR = () => {
                 setResponseData(resultString);
                 console.log(resultParts);
 
-                const addTransactionDetail = await fetch("http://localhost:7000/api/add/addTransactionDetail", {
+                const addTransactionDetail = await fetch("https://fin-tax-ai.vercel.app/api/add/addTransactionDetail", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

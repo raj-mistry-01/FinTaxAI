@@ -20,7 +20,7 @@ const Signup = () => {
       // Store email in localStorage
       localStorage.setItem('userEmail', email);
   
-      const response = await fetch("http://localhost:7000/api/auth/createuser", {
+      const response = await fetch("https://fin-tax-ai.vercel.app/api/auth/createuser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

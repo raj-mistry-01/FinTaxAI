@@ -3,9 +3,12 @@ import GeneralInfoForm from './Individual/PersonalInfo';
 import IncomeForm from './Individual/Income';
 import ExpensesForm from './Individual/Expenses';
 import InvestmentsForm from './Individual/Investment';
+import { useNavigate } from "react-router-dom";
+
 
 const MultiStepForm = () => {
   const [step, setStep] = useState(1);
+    const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     generalInfo: {},
@@ -24,7 +27,7 @@ const MultiStepForm = () => {
 let email  = localStorage.getItem("userEmail");
   const handleSubmit = async () => {
     try {
-      let response = await fetch("http://localhost:7000/api/add/addIndividualData", {
+      let response = await fetch("https://fin-tax-ai.vercel.app/api/add/addIndividualData", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -74,6 +77,7 @@ let email  = localStorage.getItem("userEmail");
 
       const data = await response.json(); // Parse the JSON from the response
       console.log('User saved successfully:', data);
+      navigate("/profile")
       
       // You might want to reset the form or navigate to another page after submission
       // setFormData({ email: '', generalInfo: {}, income: {}, expenses: {}, investments: {} });

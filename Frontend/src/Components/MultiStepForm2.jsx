@@ -39,7 +39,7 @@ const MultiStepForm = () => {
     let email = localStorage.getItem("userEmail");
   
     try {
-      const response = await fetch("http://localhost:7000/api/add/addOrganizationData", {
+      const response = await fetch("https://fin-tax-ai.vercel.app/api/add/addOrganizationData", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

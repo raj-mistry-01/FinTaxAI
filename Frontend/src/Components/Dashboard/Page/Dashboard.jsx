@@ -6,8 +6,12 @@ import TopicAnalysis from "../TopicAnalysis";
 import SubmissionsGraph from "../SubmissionsGraph";
 import News from "../News";
 import Analysis from "../Analysis";
+import { useNavigate } from "react-router-dom";
+
+
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   const [userData, setUserData] = useState(null);
   const generateReport = async () => {
     console.log("Generating report...");
@@ -54,7 +58,7 @@ const response = await fetch("http://127.0.0.1:5000/getDetailsFromMongo", {
       try {
         let email = localStorage.getItem("userEmail");
         const response = await fetch(
-          "http://localhost:7000/api/fetch/getIndividualdetail",
+          "https://fin-tax-ai.vercel.app/api/fetch/getIndividualdetail",
           {
             method: "POST",
             body: JSON.stringify({ email: email }),
@@ -71,10 +75,31 @@ const response = await fetch("http://127.0.0.1:5000/getDetailsFromMongo", {
     };
     fetchData();
   }, []);
+  const handleGetStarted = () => {
+    navigate("/get-started"); // Change this path as needed
+  };
 
   if (!userData) {
-    return <div>Loading...</div>;
+    return (
+      <div style={{ textAlign: "center", marginTop: "3rem" }}>
+        <h2>You have not entered details of individual.</h2>
+        <p>Let’s get started!</p>
+        <button onClick={handleGetStarted} style={{
+          padding: "10px 20px",
+          fontSize: "16px",
+          backgroundColor: "#4CAF50",
+          color: "white",
+          border: "none",
+          borderRadius: "5px",
+          cursor: "pointer"
+        }}>
+          Get Started
+        </button>
+      </div>
+    );
   }
+
+  
 
   return (
 <div className="flex items-center justify-center min-h-screen bg-gray-50 p-4">
