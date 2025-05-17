@@ -9,7 +9,7 @@ const OCR = () => {
     const [parsedResponse, setParsedResponse] = useState([]);
 
     const genAI = new GoogleGenerativeAI(
-        "AIzaSyBVtbZmBLweYkN5Nd0CaXK7bmxfNgKaBNE"
+        "AIzaSyD-KCwJ-ehSvSNmFtky3nhmEi0zTxLzwng"
     ); // Keep your API key secure in environment variables.
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
