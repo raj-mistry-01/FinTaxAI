@@ -2,9 +2,9 @@ from pymongo import MongoClient
 from pymongo.collection import Collection
 from pymongo.database import Database 
 
-MONGO_URI = "mongodb+srv://daiictHack:matrix0101@cluster0.uomrk.mongodb.net/TaxAi?retryWrites=true&w=majority&appName=Cluster0"
+MONGO_URI = "mongodb+srv://makwanaraj782:raj_mistry01@cluster0.utrhvim.mongodb.net/FinTaxAi?retryWrites=true&w=majority&appName=Cluster0"
 
-DATABASE_NAME = "TaxAi"
+DATABASE_NAME = "FinTaxAi"
 
 class DatabaseColletion :
     def __init__(self) -> None:
