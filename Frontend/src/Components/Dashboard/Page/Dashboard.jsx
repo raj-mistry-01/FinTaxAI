@@ -128,7 +128,7 @@ const response = await fetch("http://127.0.0.1:5000/getDetailsFromMongo", {
           </div>
           <div className="w-full md:w-1/3 flex flex-col gap-8">
             <TopicAnalysis />
-            <News />
+            {/* <News /> */}
           </div>
         </div>
       </div>
