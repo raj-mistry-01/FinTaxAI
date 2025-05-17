@@ -1,7 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
+
+  const navigate = useNavigate();
+  const getstartedClick = ()=>{
+    if (localStorage.getItem('userEmail') !== null) {
+      navigate("/get-started")
+    } else {
+      window.alert("Please Log in first")
+      navigate("/login")
+    }
+
+  }
   return (
     <div
       className="bg-cover bg-center min-h-screen"
@@ -22,11 +34,11 @@ const HomePage = () => {
           <p className="text-lg text-gray-600 mb-8">
             Experience effortless tax filing and maximize your savings with personalized insights.
           </p>
-          <Link to="/get-started">
-            <button className="text-lg font-semibold px-6 py-3 rounded-md bg-[#ebd4ad] text-black hover:bg-gray-400 transition">
+          {/* <Link to="/get-started"> */}
+            <button className="text-lg font-semibold px-6 py-3 rounded-md bg-[#ebd4ad] text-black hover:bg-gray-400 transition" onClick={getstartedClick}>
               Get Started
             </button>
-          </Link>
+          {/* </Link> */}
         </div>
       </section>
     </div>

@@ -23,7 +23,7 @@ const Login = () => {
       
       toast.success("Logged in successfully!");
       setLoading(false);
-      navigate("/dashboard");
+      navigate("/profile");
     } catch (error) {
       setLoading(false);
       toast.error("Login failed: " + error.message);
