@@ -19,14 +19,14 @@ def convert_objectid_to_str(data):
         return str(data)
     return data
 
-@app.route("/getDetailsFromMongo", methods=["POST"])
+@app.route("/generateReport", methods=["POST"])
 def get_members():
     print("API called")
-    data = request.get_json()
-    email = data.get("email")
-    print(email)
+    # data = request.get_json()
+    # email = data.get("email")
+    # print(email)
     try:
-        email = "example@organization.com"
+        email = "testapi@gmail.com"
         if not email:
             return jsonify({"error": "Email is required"}), 400
         
@@ -167,12 +167,24 @@ def get_members():
 ]
 Given the following block of text related to tax deductions, extract the relevant information, then calculate the total tax to be paid and present it in a structured table format. Ensure that each piece of data is succinctly summarized while maintaining clarity. Here is the text block: {ai_response}"""
         table_representation_res = ai(table_representation)
-        table_data = ast.literal_eval(table_representation_res)
+        # table_data = ast.literal_eval(table_representation_res)
+        # table_data = numpy.array(table_data)
+        # output_path = create_pdf_with_table(ai_response , table_data )
+        # return send_file(output_path, as_attachment=True)
+        import re, ast
+        match = re.search(r"\[.*\]", table_representation_res, re.DOTALL)
+        if not match:
+            raise ValueError("AI did not return a valid list")
+
+        cleaned_list = match.group(0)
+        table_data = ast.literal_eval(cleaned_list)
+
         table_data = numpy.array(table_data)
-        output_path = create_pdf_with_table(ai_response , table_data )
+
+        output_path = create_pdf_with_table(ai_response, table_data)
         return send_file(output_path, as_attachment=True)
     except Exception as e:
-        print(f"Error creating PDF: {e}")
-        return jsonify({"error": "Failed to create PDF"}), 500
+            print(f"Error creating PDF: {e}")
+            return jsonify({"error": "Failed to create PDF"}), 500
 if __name__ == "__main__":
     app.run(debug=True)

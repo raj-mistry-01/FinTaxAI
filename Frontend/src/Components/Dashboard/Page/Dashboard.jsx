@@ -24,7 +24,8 @@ const Dashboard = () => {
 //
 
 
-const response = await fetch("http://127.0.0.1:5000/getDetailsFromMongo", {
+const response = await fetch("http://127.0.0.1:5000/generateReport", {
+// const response = await fetch("http://127.0.0.1:5000/getDetailsFromMongo", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",

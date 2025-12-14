@@ -83,8 +83,8 @@ const ChatPanel = () => {
       }
     }
   };
-  const genAI = new GoogleGenerativeAI("AIzaSyD-KCwJ-ehSvSNmFtky3nhmEi0zTxLzwng");
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  const genAI = new GoogleGenerativeAI("AIzaSyDa4OTK9RNk-wucZc9EuRb_E7vk11C0evY");
+  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
   const handleSendMessage = async (message) => {
     if (message.trim() === '') return;
 

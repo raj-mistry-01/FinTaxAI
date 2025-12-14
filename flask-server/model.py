@@ -3,12 +3,17 @@ from fpdf import FPDF
 import ast
 # from fpdf import FPDF
 
-API_KEY = 'AIzaSyCCiKT6_gfxzXNEiYO3VeE_sY15h3pSf9Y'
+API_KEY = 'AIzaSyDa4OTK9RNk-wucZc9EuRb_E7vk11C0evY'
 
 def ai(query):
     generative_ai.configure(api_key=API_KEY)
-    model = generative_ai.GenerativeModel('gemini-pro')
-    response = model.generate_content(query)
+    model = generative_ai.GenerativeModel('gemini-2.5-flash')
+    response = model.generate_content(
+        query,
+        request_options={
+            "timeout" : 60.0
+        }
+        )
     cleaned_response = response.text.replace('*', '').replace('#', '')
     return cleaned_response
     
